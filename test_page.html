@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Automation Test Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .reset-btn {
+            background-color: #f44336;
+        }
+        .reset-btn:hover {
+            background-color: #da190b;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            color: #155724;
+            display: none;
+        }
+        .search-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            flex: 1;
+        }
+        .search-box button {
+            flex: 0 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Browser Automation Test Seite</h1>
+        <p><em>Diese Seite dient zum Testen von Browser-Automatisierung und Eingabevalidierung</em></p>
+        
+        <!-- Hauptformular -->
+        <form id="testForm" action="#" method="post">
+            <div class="form-group">
+                <label for="userName">Benutzername:</label>
+                <input type="text" id="userName" name="userName" placeholder="Geben Sie Ihren Namen ein" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="userEmail">E-Mail-Adresse:</label>
+                <input type="email" id="userEmail" name="userEmail" placeholder="beispiel@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="userPhone">Telefonnummer:</label>
+                <input type="tel" id="userPhone" name="userPhone" placeholder="0123-456789">
+            </div>
+            
+            <div class="form-group">
+                <label for="userAge">Alter:</label>
+                <input type="text" id="userAge" name="userAge" placeholder="25">
+            </div>
+            
+            <div class="form-group">
+                <label for="userCountry">Land:</label>
+                <select id="userCountry" name="userCountry" required>
+                    <option value="">-- Wählen Sie ein Land --</option>
+                    <option value="deutschland">Deutschland</option>
+                    <option value="oesterreich">Österreich</option>
+                    <option value="schweiz">Schweiz</option>
+                    <option value="usa">USA</option>
+                    <option value="frankreich">Frankreich</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="userMessage">Nachricht:</label>
+                <textarea id="userMessage" name="userMessage" rows="4" placeholder="Ihre Nachricht (optional)"></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" id="submitBtn">📤 Formular Absenden</button>
+                <button type="button" id="resetBtn" class="reset-btn">🔄 Zurücksetzen</button>
+            </div>
+        </form>
+        
+        <div id="formResult" class="result">
+            <h3>✅ Formular erfolgreich übermittelt!</h3>
+            <p>Vielen Dank für Ihre Eingaben. Das Browser-Automatisierung-Tool hat erfolgreich funktioniert.</p>
+        </div>
+        
+        <!-- Suchbereich -->
+        <div class="search-section">
+            <h2>🔍 Suchfunktion</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Suchen Sie nach etwas...">
+                <button type="button" id="searchBtn">Suchen</button>
+            </div>
+            <div id="searchResults" style="display: none; padding: 10px; background: #f0f8ff; border-radius: 4px;">
+                <p><strong>Suchergebnisse für:</strong> <span id="searchTerm"></span></p>
+                <ul>
+                    <li>Beispiel Ergebnis 1 - Browser Automatisierung</li>
+                    <li>Beispiel Ergebnis 2 - Selenium WebDriver</li>
+                    <li>Beispiel Ergebnis 3 - Python Testing Framework</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Test-Buttons für verschiedene Szenarien -->
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee;">
+            <h3>🧪 Test-Buttons</h3>
+            <div class="button-group">
+                <button type="button" id="alertBtn">⚠️ Alert Test</button>
+                <button type="button" id="confirmBtn">❓ Confirm Test</button>
+                <button type="button" id="slowLoadBtn">⏳ Langsames Laden</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Formular-Behandlung
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formResult').style.display = 'block';
+            document.getElementById('testForm').style.opacity = '0.7';
+        });
+        
+        // Reset-Button
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('testForm').reset();
+            document.getElementById('formResult').style.display = 'none';
+            document.getElementById('testForm').style.opacity = '1';
+        });
+        
+        // Such-Funktionalität
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const searchValue = document.getElementById('searchInput').value;
+            if (searchValue.trim()) {
+                document.getElementById('searchTerm').textContent = searchValue;
+                document.getElementById('searchResults').style.display = 'block';
+            }
+        });
+        
+        // Test-Buttons
+        document.getElementById('alertBtn').addEventListener('click', function() {
+            alert('Dies ist ein Test-Alert für Browser-Automatisierung!');
+        });
+        
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+            if (confirm('Bestätigen Sie diese Test-Aktion?')) {
+                alert('Test bestätigt!');
+            } else {
+                alert('Test abgebrochen.');
+            }
+        });
+        
+        document.getElementById('slowLoadBtn').addEventListener('click', function() {
+            const btn = this;
+            btn.disabled = true;
+            btn.textContent = '⏳ Lädt...';
+            
+            setTimeout(function() {
+                btn.disabled = false;
+                btn.textContent = '✅ Geladen!';
+                alert('Langsamer Ladevorgang abgeschlossen!');
+                
+                setTimeout(function() {
+                    btn.textContent = '⏳ Langsames Laden';
+                }, 2000);
+            }, 3000);
+        });
+        
+        // Eingabe-Validierung
+        document.getElementById('userEmail').addEventListener('blur', function() {
+            const email = this.value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailPattern.test(email)) {
+                this.style.borderColor = '#f44336';
+                alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+            } else {
+                this.style.borderColor = '#4CAF50';
+            }
+        });
+    </script>
+</body>
+</html>
