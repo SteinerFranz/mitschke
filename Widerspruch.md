@@ -45,7 +45,7 @@ Ich beantrage,
 
 ## Aufschiebende Wirkung
 
-Ich weise darauf hin, dass gemäß § 80 Abs. 1 VwGO dem Widerspruch aufschiebende Wirkung zukommt.
+Ich weise darauf hin, dass gemäß § 80 Abs. 1 VwGO dem Widerspruch gegen Verwaltungsakte grundsätzlich aufschiebende Wirkung zukommt. Bitte prüfen Sie, ob im vorliegenden Fall eine der Ausnahmen nach § 80 Abs. 2 VwGO (z. B. bei der Anforderung von öffentlichen Abgaben oder bei besonders angeordneter sofortiger Vollziehbarkeit) einschlägig ist.
 
 Ich bitte um schriftliche Bestätigung des Eingangs dieses Widerspruchs sowie um Mitteilung des zuständigen Sachbearbeiters.
 
